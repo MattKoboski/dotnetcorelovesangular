@@ -4,6 +4,7 @@
 - dotnet run
 
 ## W folderze src/client:
+-  npm install
 -  npm start
 
 ### Aplikacja będzie dostępna pod domyślnym adresem http://localhost:4200

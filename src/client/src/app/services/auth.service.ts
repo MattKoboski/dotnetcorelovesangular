@@ -41,9 +41,9 @@ export class AuthService {
             this.userRoles = profile['http://api.tim-lab/roles'];
         });
         console.log(authResult);
-        this.router.navigate(['/coupons']);
+        this.router.navigate(['/index']);
       } else if (err) {
-        this.router.navigate(['/coupons']);
+        this.router.navigate(['/index']);
         console.log(err);
       }
     });

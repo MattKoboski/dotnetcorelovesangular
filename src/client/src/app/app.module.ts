@@ -16,7 +16,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp( new AuthConfig({}), http, options);
 }
 const appRoutes: Routes = [
-  { path: '', redirectTo: '/index', pathMatch: 'full' },
+  { path: '', component: AppComponent },
   { path: 'index', component: IndexComponent },
   { path: 'profile', component: ProfileComponent},
   { path: '**', component: AppComponent }
