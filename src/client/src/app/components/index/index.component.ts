@@ -8,6 +8,7 @@ import { ValuesService } from '../../services/values.service';
 })
 export class IndexComponent implements OnInit {
 
+  result: any;
   values: any;
   data: any = {
     value: ''
@@ -22,6 +23,7 @@ export class IndexComponent implements OnInit {
   submit() {
     this.valuesService.create(this.data)
       .subscribe(result => {
+        this.result = result;
         console.log(result);
       });
   }
@@ -29,6 +31,7 @@ export class IndexComponent implements OnInit {
   delete() {
     this.valuesService.delete("data")
     .subscribe(result => {
+      this.result = result;
       console.log(result);
     });
   }
