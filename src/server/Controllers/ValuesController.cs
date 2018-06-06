@@ -1,5 +1,8 @@
 ﻿using System.Collections.Generic;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using server.Core;
+using server.Core.Models;
 
 namespace server.Controllers
 {
@@ -12,31 +15,14 @@ namespace server.Controllers
         {
             return Ok(new string[] { "value1", "value2", "value2" });
         }
-
-        [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
-        {
-            return Ok($"value = {id}");
-        }
-
+        
         [HttpPost]
-        public ActionResult<string> Post([FromBody] string value)
+        public ActionResult Post([FromBody] DataResource dataResource)
         {
-            if(!ModelState.IsValid)
-                return BadRequest(value);
-
-            return Ok($"{value} saved");
+            return Ok(dataResource);
         }
 
-        [HttpPut("{id}")]
-        public ActionResult<string> Put(int id, [FromBody] string value)
-        {
-            if(!ModelState.IsValid)
-                return BadRequest();
-
-            return Ok($"{value} updated");
-        }
-
+        [Authorize(Policies.RequireAdmin)]
         [HttpDelete("{value}")]
         public ActionResult<string> Delete(string value)
         {

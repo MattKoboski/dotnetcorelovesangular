@@ -9,7 +9,9 @@ import { ValuesService } from '../../services/values.service';
 export class IndexComponent implements OnInit {
 
   values: any;
-  valueToAdd: string;
+  data: any = {
+    value: ''
+  };
   constructor(private valuesService: ValuesService) { }
 
   ngOnInit() {
@@ -18,14 +20,14 @@ export class IndexComponent implements OnInit {
   }
 
   submit() {
-    this.valuesService.create(this.valueToAdd)
+    this.valuesService.create(this.data)
       .subscribe(result => {
         console.log(result);
       });
   }
 
   delete() {
-    this.valuesService.delete('delete')
+    this.valuesService.delete("data")
     .subscribe(result => {
       console.log(result);
     });

@@ -16,19 +16,11 @@ export class ValuesService {
     return this.http.get(this.valuesEndpoint);
   }
 
-  create(value:string) {
-    return this.http.post(this.valuesEndpoint, value);
+  create(value) {
+    return this.authHttp.post(this.valuesEndpoint, value);
   }
 
-  getValue(id) {
-    return this.http.get(`${this.valuesEndpoint}/${id}`);
-  }
-
-  update(id, value) {
-    return this.authHttp.put(id, value);
-  }
-
-  delete(id) {
-    return this.authHttp.delete(`${this.valuesEndpoint}/${id}`);
+  delete(data:string) {
+    return this.authHttp.delete(`${this.valuesEndpoint}/${data}`);
   }
 }
