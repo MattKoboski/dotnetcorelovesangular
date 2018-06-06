@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { AuthService } from './services/auth.service';
+import { FormsModule } from '@angular/forms';
 import { Http, HttpModule, RequestOptions } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthHttp, AuthConfig } from 'angular2-jwt';
@@ -31,6 +32,7 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     HttpClientModule,
     HttpModule,
     RouterModule.forRoot(appRoutes)

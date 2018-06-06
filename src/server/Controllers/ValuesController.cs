@@ -20,7 +20,7 @@ namespace server.Controllers
         }
 
         [HttpPost]
-        public ActionResult Post([FromBody] string value)
+        public ActionResult<string> Post([FromBody] string value)
         {
             if(!ModelState.IsValid)
                 return BadRequest(value);
@@ -29,7 +29,7 @@ namespace server.Controllers
         }
 
         [HttpPut("{id}")]
-        public ActionResult Put(int id, [FromBody] string value)
+        public ActionResult<string> Put(int id, [FromBody] string value)
         {
             if(!ModelState.IsValid)
                 return BadRequest();
@@ -37,10 +37,10 @@ namespace server.Controllers
             return Ok($"{value} updated");
         }
 
-        [HttpDelete("{id}")]
-        public ActionResult Delete(int id)
+        [HttpDelete("{value}")]
+        public ActionResult<string> Delete(string value)
         {
-            return Ok($"{id} deleted");
+            return Ok($"{value} deleted");
         }
     }
 }

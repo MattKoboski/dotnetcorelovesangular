@@ -5,7 +5,7 @@ import { AuthHttp } from 'angular2-jwt';
 @Injectable()
 export class ValuesService {
 
-  private readonly valuesEndpoint = 'api/values/';
+  private readonly valuesEndpoint = 'api/values';
 
   constructor(
     private http: HttpClient,
@@ -16,12 +16,12 @@ export class ValuesService {
     return this.http.get(this.valuesEndpoint);
   }
 
-  create(value) {
-    return this.authHttp.post(this.valuesEndpoint, value);
+  create(value:string) {
+    return this.http.post(this.valuesEndpoint, value);
   }
 
   getValue(id) {
-    return this.http.get(this.valuesEndpoint + id);
+    return this.http.get(`${this.valuesEndpoint}/${id}`);
   }
 
   update(id, value) {
@@ -29,6 +29,6 @@ export class ValuesService {
   }
 
   delete(id) {
-    return this.authHttp.delete(this.valuesEndpoint + id);
+    return this.authHttp.delete(`${this.valuesEndpoint}/${id}`);
   }
 }
