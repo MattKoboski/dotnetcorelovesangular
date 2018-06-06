@@ -10,16 +10,17 @@ import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './services/auth-guard.service';
 import { ProfileComponent } from './components/profile/profile.component';
+import { ValuesService } from './services/values.service';
 
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp( new AuthConfig({}), http, options);
 }
 const appRoutes: Routes = [
-  { path: '', component: AppComponent },
+  { path: '', component: IndexComponent },
   { path: 'index', component: IndexComponent },
   { path: 'profile', component: ProfileComponent},
-  { path: '**', component: AppComponent }
+  { path: '**', component: IndexComponent }
 ];
 
 @NgModule({
@@ -32,8 +33,7 @@ const appRoutes: Routes = [
     BrowserModule,
     HttpClientModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes,
-      { enableTracing: true })
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [
     {
@@ -41,7 +41,8 @@ const appRoutes: Routes = [
       useFactory: authHttpServiceFactory,
       deps: [ Http, RequestOptions ]
     },
-    AuthService
+    AuthService,
+    ValuesService
   ],
   bootstrap: [AppComponent]
 })

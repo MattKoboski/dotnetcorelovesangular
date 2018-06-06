@@ -42,14 +42,7 @@ namespace server
 
             services.AddCors(options =>
             {
-                options.AddPolicy("MyPolicyProd",
-                builder =>
-                {
-                    builder.WithOrigins("http://localhost:4200").AllowAnyHeader();
-                    builder.WithOrigins("http://localhost:4200").AllowAnyMethod();
-                });
-
-                options.AddPolicy("MyPolicyDev",
+                options.AddPolicy("MyCorsPolicy",
                     builder =>
                     {
                         builder.AllowAnyOrigin().AllowAnyHeader();
@@ -65,14 +58,13 @@ namespace server
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseCors("MyPolicyDev");
             }
             else
             {
                 app.UseHsts();
-                app.UseCors("MyPolicyProd");
             }
             
+            app.UseCors("MyCorsPolicy");
             app.UseAuthentication();
             app.UseHttpsRedirection();
             app.UseMvc();
