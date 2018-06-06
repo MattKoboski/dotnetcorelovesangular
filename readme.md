@@ -1,3 +1,7 @@
+# Wprowadzenie
+Aplikacja napisana przy użyciu .NET Core WebApi 2.1 + Angular 6
+Demo funkcjonalności Auth0 - podejścia Authentication as a Service.
+
 # Instrukcja instalacji
 ## W folderze src/server:
 - dotnet restore
