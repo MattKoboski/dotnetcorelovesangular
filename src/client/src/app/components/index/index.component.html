@@ -16,7 +16,7 @@
     </form>
   </div>
   <div class="col-4">
-    <h2>Can be delted only by admin</h2>
+    <h2>Can be deleted only by admin</h2>
     <button *ngIf="auth.isInRole('admin')" class="btn btn-outline-danger" (click)="delete()">Remove</button>
     <button *ngIf="!auth.isInRole('admin')" class="btn btn-outline-danger" (click)="delete()" disabled>Remove</button>
   </div>
