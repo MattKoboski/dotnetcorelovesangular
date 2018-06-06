@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ValuesService } from '../../services/values.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-index',
@@ -9,11 +10,12 @@ import { ValuesService } from '../../services/values.service';
 export class IndexComponent implements OnInit {
 
   result: any;
+  showResponse: boolean = false;
   values: any;
   data: any = {
     value: ''
   };
-  constructor(private valuesService: ValuesService) { }
+  constructor(private valuesService: ValuesService, private auth: AuthService) { }
 
   ngOnInit() {
     this.valuesService.getValues()
@@ -36,4 +38,7 @@ export class IndexComponent implements OnInit {
     });
   }
 
+  responseHover() {
+    this.showResponse = !this.showResponse;
+  }
 }

@@ -16,6 +16,7 @@ namespace server.Controllers
             return Ok(new string[] { "value1", "value2", "value2" });
         }
         
+        [Authorize]
         [HttpPost]
         public ActionResult Post([FromBody] DataResource dataResource)
         {
