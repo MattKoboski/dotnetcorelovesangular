@@ -4,7 +4,7 @@ Demo funkcjonalności Auth0 - podejścia Authentication as a Service.
 
 # Instrukcja instalacji
 ## Przed uruchomieniem:
--  instalacja sdk-2.1.300-rc1 -> https://www.microsoft.com/net/download/dotnet-core/sdk-2.1.300-rc1
+-  instalacja sdk-2.1.302 -> https://www.microsoft.com/net/download/dotnet-core/sdk-2.1.302
 -  instalacja node -> https://nodejs.org/en/
 ## W folderze src/server:
 - dotnet restore
